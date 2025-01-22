@@ -15,7 +15,7 @@ public static class GetVideo
                 .DisableAntiforgery();
         }
 
-        private async Task<IResult> Handler(
+        public static async Task<IResult> Handler(
             [FromKeyedServices(KeyedServicesConstants.AzureStorageServiceKey)]
             IStorageService storageService,
             string videoName)
