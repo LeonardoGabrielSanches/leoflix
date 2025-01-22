@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeoFlix.Api", "src\LeoFlix.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeoFlix.CrossCutting", "src\LeoFlix.CrossCutting\LeoFlix.CrossCutting.csproj", "{305A51E0-4E57-436C-9157-4901BC9F3636}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeoFlix.Tests", "tests\LeoFlix.Tests\LeoFlix.Tests.csproj", "{86D84837-847B-4672-9199-23C359C48EAB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{305A51E0-4E57-436C-9157-4901BC9F3636}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{305A51E0-4E57-436C-9157-4901BC9F3636}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{305A51E0-4E57-436C-9157-4901BC9F3636}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86D84837-847B-4672-9199-23C359C48EAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86D84837-847B-4672-9199-23C359C48EAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86D84837-847B-4672-9199-23C359C48EAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86D84837-847B-4672-9199-23C359C48EAB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -21,7 +21,7 @@ public static class UploadVideo
                 .DisableAntiforgery();
         }
 
-        private static async Task<IResult> Handler(
+        public static async Task<IResult> Handler(
             [FromForm] Request request,
             Channel<VideoDispatch> videoDispatchChannel)
         {
