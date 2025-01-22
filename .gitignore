@@ -1,0 +1,10 @@
+bin/
+obj/
+/packages/
+riderModule.iml
+/_ReSharper.Caches/
+
+node_modules/
+.DS_Store
+.idea/
+LeoFlix.sln.DotSettings.user

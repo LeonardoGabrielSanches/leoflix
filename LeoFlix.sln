@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeoFlix.Host", "LeoFlix.Host\LeoFlix.Host.csproj", "{50A534EB-1AA2-475D-8524-EF4E48307EC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeoFlix.Api", "LeoFlix.Api\LeoFlix.Api.csproj", "{16B858AF-9806-40E8-BB69-02970F9EB376}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeoFlix.CrossCutting", "LeoFlix.CrossCutting\LeoFlix.CrossCutting.csproj", "{3F3BCDB6-E2C0-44E4-8867-884498870855}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{50A534EB-1AA2-475D-8524-EF4E48307EC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50A534EB-1AA2-475D-8524-EF4E48307EC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50A534EB-1AA2-475D-8524-EF4E48307EC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50A534EB-1AA2-475D-8524-EF4E48307EC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16B858AF-9806-40E8-BB69-02970F9EB376}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16B858AF-9806-40E8-BB69-02970F9EB376}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16B858AF-9806-40E8-BB69-02970F9EB376}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16B858AF-9806-40E8-BB69-02970F9EB376}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F3BCDB6-E2C0-44E4-8867-884498870855}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F3BCDB6-E2C0-44E4-8867-884498870855}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F3BCDB6-E2C0-44E4-8867-884498870855}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F3BCDB6-E2C0-44E4-8867-884498870855}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
