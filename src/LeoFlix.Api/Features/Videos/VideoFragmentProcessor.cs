@@ -22,7 +22,7 @@ public class VideoFragmentProcessor(
     }
 }
 
-internal sealed class FragmentProcessor(
+public sealed class FragmentProcessor(
     [FromKeyedServices(KeyedServicesConstants.AzureStorageServiceKey)]
     IStorageService storageService)
 {

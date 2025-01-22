@@ -15,8 +15,8 @@ public class UploadVideoTest
     {
         // Arrange
         const string fileContent = "This is a test file";
-        const string fileName = "test.txt";
-        const string contentType = "text/plain";
+        const string fileName = "test.zip";
+        const string contentType = "application/zip";
 
         var fileMock = new Mock<IFormFile>();
         var ms = new MemoryStream(Encoding.UTF8.GetBytes(fileContent));

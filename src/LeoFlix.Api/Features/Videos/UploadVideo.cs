@@ -1,9 +1,10 @@
+using System.IO.Compression;
 using System.Threading.Channels;
+using Flunt.Validations;
 using LeoFlix.Api.Shared;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LeoFlix.Api.Features.Videos;
-
 
 public static class UploadVideo
 {
@@ -21,24 +22,57 @@ public static class UploadVideo
                 .DisableAntiforgery();
         }
 
+        private class UploadValidator : Contract<Request>
+        {
+            public UploadValidator(Request request)
+            {
+                Requires()
+                    .IsNotNull(request.Video, "Video", "No file uploaded.")
+                    .IsTrue(BeAValidZipFile(request.Video), "Video", "The uploaded file is not a valid ZIP file.");
+            }
+
+            private static bool BeAValidZipFile(IFormFile file)
+            {
+                return file.ContentType == "application/zip";
+            }
+        }
+
         public static async Task<IResult> Handler(
             [FromForm] Request request,
             Channel<VideoDispatch> videoDispatchChannel)
         {
-            if (request.Video.Length == 0)
-                return Results.BadRequest("No file uploaded.");
+            var validation = new UploadValidator(request);
+            if (!validation.IsValid)
+                return Results.BadRequest(validation.Notifications);
 
-            var uploadPath = Path.Combine(Constants.VideoDirectory, request.Video.FileName);
-
-            await using (var stream = new FileStream(uploadPath, FileMode.Create))
+            // Open the ZIP file from the request stream
+            using (var zipArchive = new ZipArchive(request.Video.OpenReadStream()))
             {
-                await request.Video.CopyToAsync(stream);
-            }
+                foreach (var entry in zipArchive.Entries)
+                {
+                    // Create the file path for each entry (inside the VideoDirectory)
+                    var extractedFilePath = Path.Combine(Constants.VideoDirectory, entry.FullName);
 
-            await videoDispatchChannel.Writer.WriteAsync(new VideoDispatch(uploadPath));
+                    // Ensure the directory exists for extraction
+                    var directory = Path.GetDirectoryName(extractedFilePath);
+                    if (directory != null && !Directory.Exists(directory))
+                    {
+                        Directory.CreateDirectory(directory);
+                    }
+
+                    // Extract the file directly from the ZIP entry stream
+                    await using (var entryStream = entry.Open())
+                    await using (var fileStream = new FileStream(extractedFilePath, FileMode.Create))
+                    {
+                        await entryStream.CopyToAsync(fileStream);
+                    }
+
+                    // Process the extracted file (send it to the video dispatch channel)
+                    await videoDispatchChannel.Writer.WriteAsync(new VideoDispatch(extractedFilePath));
+                }
+            }
 
             return Results.Accepted();
         }
     }
 }
-
