@@ -61,5 +61,5 @@ jobs:
         with:
           app-name: 'shorten-url-leonardo-sanches'
           slot-name: 'Production'
-          package: ${{env.DOTNET_ROOT}}/myapp
+          package: .
           
