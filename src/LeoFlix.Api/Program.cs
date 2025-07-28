@@ -25,6 +25,7 @@ if (app.Environment.IsDevelopment())
 
 app.MapEndpoints();
 
+app.MapGet("ping", () => Results.Ok("pong."));
 app.UseHttpsRedirection();
 
 app.UseCors("AllowAll");
